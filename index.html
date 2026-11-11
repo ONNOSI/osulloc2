@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<!-- viewport: 기기 폭 그대로 표시 / minimum-scale=1: iOS가 넘치는 콘텐츠에 맞춰 페이지를 축소하지 못하게 함 / viewport-fit=cover: 노치 대응 -->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4F1E8">
+<meta name="description" content="OSULLOC — 제주 자연에서 시작되는 프리미엄 티 라이프 (웹디자인 학습용 콘셉트 사이트)">
+<title>OSULLOC | JEJU TEA LIFE</title>
+<!-- [수정가이드] 색상·간격: css/style.css 상단 :root / 상품·콘텐츠 데이터: js/data.js / 동작: js/script.js / 이미지: assets/ 폴더 또는 data.js 의 img 경로 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Serif:ital@0;1&family=Noto+Serif+KR:wght@300;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body class="no-js">
+<script>document.body.classList.remove('no-js')</script>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<!-- ===== 1. HEADER =====
+     모바일/태블릿(~1023px): [햄버거] [로고] [검색·장바구니] + 전체 화면 메뉴 / PC(1024px~): 로고 · 메뉴 · 도구 한 줄 + 메가메뉴
+     스크롤을 내리면 숨고, 올리면 다시 나타납니다(js/script.js 3번) -->
+<header id="hd">
+  <div class="hd-in">
+    <button type="button" id="burger" class="ico" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnav"><span></span><span></span><span></span></button>
+    <a href="#top" class="logo" aria-label="OSULLOC 홈"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c5 3 7 8 0 20C5 10 7 5 12 2z" fill="currentColor"/></svg><span>OSULLOC</span></a>
+    <nav id="gnav" aria-label="주요 메뉴">
+      <ul>
+        <li class="has-mega"><a href="#shop" data-nav>SHOP</a>
+          <div class="mega"><div class="mega-in">
+            <div class="mega-col"><p class="mega-t">CATEGORY</p><a href="#shop" data-cat="teabag">티백</a><a href="#shop" data-cat="leaf">잎차</a><a href="#shop" data-cat="matcha">말차</a><a href="#shop" data-cat="blend">블렌디드 티</a><a href="#shop" data-cat="gift">선물세트</a></div>
+            <div class="mega-col"><p class="mega-t">THEME</p><a href="#best">베스트 상품</a><a href="#promo">시즌 기획전</a><a href="#shop" data-cat="gift">선물 추천</a></div>
+            <a class="mega-feat" href="#promo"><img src="assets/photos/promo-2.jpg" alt="" loading="lazy"><span>AUTUMN EDITION<b>가을 한정 기획세트</b></span></a>
+          </div></div></li>
+        <li><a href="#best" data-nav>BEST</a></li>
+        <li class="has-mega"><a href="#tealife" data-nav>TEA LIFE</a>
+          <div class="mega"><div class="mega-in">
+            <div class="mega-col"><p class="mega-t">TEA LIFE</p><a href="#tealife" data-life="life1">차 우리는 법</a><a href="#tealife" data-life="life2">티 레시피</a><a href="#tealife" data-life="life3">티 페어링</a></div>
+            <a class="mega-feat" href="#tealife" data-life="life2"><img src="assets/photos/life-2.jpg" alt="" loading="lazy"><span>RECIPE<b>유자 아이스티 레시피</b></span></a>
+          </div></div></li>
+        <li class="has-mega"><a href="#brand" data-nav>BRAND</a>
+          <div class="mega"><div class="mega-in">
+            <div class="mega-col"><p class="mega-t">BRAND</p><a href="#brand" data-story>브랜드 스토리</a><a href="#brand">제주 차밭 이야기</a></div>
+            <a class="mega-feat" href="#brand"><img src="assets/photos/story-2.jpg" alt="" loading="lazy"><span>JEJU<b>바람과 햇살이 키운 한 잎</b></span></a>
+          </div></div></li>
+        <li><a href="#museum" data-nav>TEA MUSEUM</a></li>
+        <li><a href="#journal" data-nav>JOURNAL</a></li>
+      </ul>
+      <!-- 모바일 메뉴 하단 도구 (PC에서는 숨김) -->
+      <div class="m-tools"><button type="button" data-view="my">로그인 · 마이페이지</button><button type="button" data-view="wish">찜 목록</button><button type="button" data-view="recent">최근 본 상품</button></div>
+    </nav>
+    <div class="tools">
+      <button type="button" class="ico" id="searchBtn" aria-label="검색 열기" aria-expanded="false"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg></button>
+      <button type="button" class="tx" id="loginBtn" data-view="my">로그인</button>
+      <button type="button" class="ico t-only" data-view="my" aria-label="마이페이지"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 4-7 8-7s7 2 8 7"/></svg></button>
+      <button type="button" class="ico" data-view="cart" aria-label="장바구니"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><i class="cnt" data-count="cart">0</i></button>
+    </div>
+  </div>
+  <!-- 검색창: 입력하면 바로 결과가 나옵니다 -->
+  <div id="search" class="search" hidden>
+    <div class="search-in">
+      <label class="sr-only" for="q">상품 검색</label>
+      <input id="q" type="search" placeholder="차 이름, 맛, 카테고리를 검색해 보세요" autocomplete="off" enterkeyhint="search">
+      <button type="button" class="ico" id="searchClose" aria-label="검색 닫기"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    </div>
+    <div class="search-tags"><span>인기 검색어</span><button type="button">녹차</button><button type="button">말차</button><button type="button">유자</button><button type="button">선물</button><button type="button">티백</button></div>
+    <ul id="results" class="results" aria-live="polite"></ul>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ===== 2. MAIN VISUAL =====
+     [수정가이드] 슬라이드 추가 = .slide 블록 복사 / PC·모바일 이미지는 picture 안 srcset으로 각각 지정 / 버튼의 data-cat = 이동할 카테고리 -->
+<section class="hero" id="hero" aria-roledescription="carousel" aria-label="메인 비주얼">
+  <div class="slides">
+    <article class="slide on">
+      <picture><source media="(max-width:767px)" srcset="assets/photos/hero-1-m.jpg"><img src="assets/photos/hero-1.jpg" alt="안개 낀 제주 아침 차밭" draggable="false"></picture>
+      <div class="txt"><p class="eb">01 — JEJU MORNING</p><h1>제주의 아침을<br><em>우린 한 잔</em></h1><p class="ds">이른 봄 차밭에서 가장 먼저 딴 어린 잎, 우전 잎차를 만나보세요.</p><a class="cta" href="#shop" data-cat="leaf">SHOP NOW <i></i></a></div>
+    </article>
+    <article class="slide">
+      <picture><source media="(max-width:767px)" srcset="assets/photos/hero-2-m.jpg"><img src="assets/photos/hero-2.jpg" alt="푸르게 펼쳐진 제주 차밭 길" draggable="false"></picture>
+      <div class="txt"><p class="eb">02 — MATCHA</p><h1>가장 진한<br><em>초록의 맛</em></h1><p class="ds">곱게 갈아낸 말차로 즐기는 라떼와 디저트의 시간.</p><a class="cta" href="#shop" data-cat="matcha">SHOP NOW <i></i></a></div>
+    </article>
+    <article class="slide">
+      <picture><source media="(max-width:767px)" srcset="assets/photos/hero-3-m.jpg"><img src="assets/photos/hero-3.jpg" alt="해 질 녘 제주 차밭" draggable="false"></picture>
+      <div class="txt"><p class="eb">03 — GIFT</p><h1>마음을 전하는<br><em>티 선물</em></h1><p class="ds">가을 한정 기획세트와 선물세트를 한자리에서.</p><a class="cta" href="#shop" data-cat="gift">SHOP NOW <i></i></a></div>
+    </article>
+  </div>
+  <div class="hero-ui">
+    <div class="dots" role="tablist" aria-label="슬라이드 선택"><button type="button" class="on" aria-label="1번 슬라이드"><i></i></button><button type="button" aria-label="2번 슬라이드"><i></i></button><button type="button" aria-label="3번 슬라이드"><i></i></button></div>
+    <p class="count"><b id="hCur">01</b> / 03</p>
+    <div class="arrows"><button type="button" class="ico prev" aria-label="이전 슬라이드"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" class="ico next" aria-label="다음 슬라이드"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE: 문구 반복 (좌 ← / 우 → 두 줄). 같은 내용을 두 번 이어 붙여 끊김 없이 순환 ===== -->
+<section class="marquee" aria-hidden="true">
+  <div class="mq mq-a"><div class="mq-track"><span>OSULLOC <i>✦</i> JEJU <i>✦</i> TEA MOMENT <i>✦</i> </span><span>OSULLOC <i>✦</i> JEJU <i>✦</i> TEA MOMENT <i>✦</i> </span></div></div>
+  <div class="mq mq-b"><div class="mq-track"><span>TEA MOMENT <i>✦</i> JEJU <i>✦</i> OSULLOC <i>✦</i> </span><span>TEA MOMENT <i>✦</i> JEJU <i>✦</i> OSULLOC <i>✦</i> </span></div></div>
+</section>
+
+<!-- ===== 3. CATEGORY: 알약형 탭 → 상품 전환(페이드). 모바일은 탭이 가로 스크롤 ===== -->
+<section class="sec cat" id="shop">
+  <svg class="wave top" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40C120 0 240 80 360 40S600 0 720 40 960 80 1080 40 1320 0 1440 40V0H0z"/></svg>
+  <div class="wrap">
+    <header class="sec-h"><p class="eb"><b>01</b> CATEGORY</p><h2>오늘의 차를<br><em>골라보세요</em></h2></header>
+    <div class="tabs" role="tablist" aria-label="카테고리" id="tabs"></div>
+    <div class="grid" id="catGrid" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ===== 4. BEST: 가로 슬라이더 (터치 스와이프 · 마우스 드래그 · 화살표 · 위치 표시줄) ===== -->
+<section class="sec best" id="best">
+  <div class="wrap">
+    <header class="sec-h row"><div><p class="eb"><b>02</b> BEST PRODUCT</p><h2>지금 가장<br><em>사랑받는 차</em></h2></div>
+      <div class="arrows"><button type="button" class="ico" id="bPrev" aria-label="이전 상품"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" class="ico" id="bNext" aria-label="다음 상품"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></header>
+  </div>
+  <div class="best-wrap"><div class="track" id="bTrack" tabindex="0" aria-label="베스트 상품 목록"></div></div>
+  <div class="wrap"><div class="prog" aria-hidden="true"><i id="bProg"></i></div></div>
+</section>
+
+<!-- ===== 5. BRAND STORY: 이미지·텍스트 비대칭 / 스크롤 등장 / PC 패럴랙스 ===== -->
+<section class="sec brand" id="brand">
+  <div class="wrap brand-grid">
+    <div class="b-img"><div class="b-par"><img src="assets/photos/story.jpg" alt="제주 차밭 이랑" loading="lazy"></div><img class="b-sub rv" src="assets/photos/story-2.jpg" alt="찻잎 패턴" loading="lazy"></div>
+    <div class="b-txt">
+      <p class="eb rv"><b>03</b> BRAND STORY</p>
+      <h2 class="rv">바람과 햇살이<br><em>키운 한 잎</em></h2>
+      <p class="lead rv">화산섬 제주의 맑은 공기와 부드러운 바람, 오랜 시간 가꿔온 차밭에서 한 잎 한 잎 정성으로 자란 찻잎을 담습니다.</p>
+      <ul class="vals">
+        <li class="rv"><b>JEJU</b><span>화산토와 바다 바람이 만든 제주만의 풍미</span></li>
+        <li class="rv"><b>NATURE</b><span>계절의 리듬에 맞춰 천천히 자라는 차밭</span></li>
+        <li class="rv"><b>TEA</b><span>한 잔에 오래 머무는 여유로운 티 라이프</span></li>
+      </ul>
+      <button type="button" class="btn rv" data-story>브랜드 이야기 보기</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. TEA LIFE: 차를 즐기는 방법 · 레시피 · 페어링 (카드를 누르면 자세한 내용) ===== -->
+<section class="sec life" id="tealife">
+  <div class="wrap">
+    <header class="sec-h"><p class="eb rv"><b>04</b> TEA LIFE</p><h2 class="rv">차와 함께하는<br><em>작은 의식</em></h2></header>
+    <div class="life-grid" id="lifeGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 7. PROMOTION: 시즌 기획전 배너 → 해당 카테고리 상품으로 이동 ===== -->
+<section class="sec promo" id="promo">
+  <div class="wrap promo-grid">
+    <a class="pbn rv" href="#shop" data-cat="gift"><img src="assets/photos/promo-2.jpg" alt="" loading="lazy"><div><p class="eb">AUTUMN EDITION</p><h3>가을 한정<br>기획세트</h3><p>선물세트 최대 12% 할인</p><span class="cta dark">기획전 보기 <i></i></span></div></a>
+    <a class="pbn pbn-g rv" href="#shop" data-cat="matcha"><img src="assets/photos/promo-1.jpg" alt="" loading="lazy"><div><p class="eb">MATCHA WEEK</p><h3>말차<br>모아보기</h3><p>파우더부터 스틱까지</p><span class="cta dark">상품 보기 <i></i></span></div></a>
+  </div>
+</section>
+
+<!-- ===== 8. TEA MUSEUM ===== -->
+<section class="sec museum" id="museum">
+  <div class="wrap museum-grid">
+    <div class="m-img rv"><img src="assets/photos/museum.jpg" alt="오설록 티 뮤지엄 전경" loading="lazy"></div>
+    <div class="m-txt"><p class="eb rv"><b>05</b> TEA MUSEUM</p><h2 class="rv">차를 천천히<br><em>머물러 보는 곳</em></h2>
+      <p class="lead rv">제주 서귀포의 차밭 곁에서 차의 역사와 문화를 전시로 만나고, 향긋한 한 잔과 느린 오후를 보내는 공간입니다.</p>
+      <ul class="facts rv"><li><b>EXHIBIT</b>차의 역사와 도구 전시</li><li><b>CAFE</b>제철 차와 디저트</li><li><b>WALK</b>차밭 산책 코스</li></ul>
+      <button type="button" class="btn rv" data-museum>자세히 보기</button></div>
+  </div>
+</section>
+
+<!-- ===== 9. JOURNAL (더보기 = 숨겨진 카드 펼치기) ===== -->
+<section class="sec journal" id="journal">
+  <div class="wrap">
+    <header class="sec-h row"><div><p class="eb rv"><b>06</b> JOURNAL</p><h2 class="rv">오설록의<br><em>작은 소식</em></h2></div></header>
+    <div class="j-grid" id="jGrid"></div>
+    <div class="more"><button type="button" class="btn" id="jMore">더보기</button></div>
+  </div>
+</section>
+</main>
+
+<!-- ===== 10. FOOTER ===== -->
+<footer class="ft">
+  <div class="wrap ft-grid">
+    <div class="ft-brand"><p class="logo big"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c5 3 7 8 0 20C5 10 7 5 12 2z" fill="currentColor"/></svg><span>OSULLOC</span></p><p>JEJU TEA LIFE<br>제주 자연에서 시작되는 프리미엄 티 라이프</p>
+      <div class="sns"><a href="https://www.instagram.com/" target="_blank" rel="noopener">INSTAGRAM</a><a href="https://www.youtube.com/" target="_blank" rel="noopener">YOUTUBE</a><a href="https://www.facebook.com/" target="_blank" rel="noopener">FACEBOOK</a></div></div>
+    <div class="ft-cs"><p class="ft-t">CUSTOMER CENTER</p><b class="tel">0000-0000</b><p>평일 10:00 – 17:00 (점심 12:00 – 13:00)<br>주말·공휴일 휴무<br>※ 예시 정보입니다</p></div>
+    <div class="ft-links"><p class="ft-t">INFORMATION</p><button type="button" data-doc="terms">이용약관</button><button type="button" data-doc="privacy">개인정보처리방침</button><button type="button" data-doc="shipping">배송·교환 안내</button></div>
+  </div>
+  <div class="wrap ft-note"><p>본 사이트는 웹디자인 학습을 위해 만든 개인 프로젝트이며, 오설록의 공식 웹사이트가 아닙니다. 상품·가격·이미지는 모두 가상의 예시입니다.</p><p>© 2026 OSULLOC concept page</p></div>
+</footer>
+
+<!-- ===== 퀵 메뉴: PC·태블릿은 오른쪽 세로 / 모바일은 하단 고정 바 ===== -->
+<nav class="quick" aria-label="퀵 메뉴">
+  <button type="button" data-view="wish"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.500-7 10-7 10z"/></svg><span>찜</span><i class="cnt" data-count="wish">0</i></button>
+  <button type="button" data-view="recent"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg><span>최근</span></button>
+  <button type="button" data-view="cart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.200 12H6.200z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span>장바구니</span><i class="cnt" data-count="cart">0</i></button>
+  <button type="button" id="toTop"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg><span>TOP</span></button>
+</nav>
+
+<!-- 오른쪽 패널(장바구니 · 찜 · 최근 본 상품 · 로그인/마이페이지) -->
+<div id="veil" hidden></div>
+<aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
+  <header><h3 id="dTitle">BAG</h3><button type="button" class="ico" data-close aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button></header>
+  <div id="dBody" class="d-body"></div>
+</aside>
+
+<!-- 모달(상품 상세 · 콘텐츠 · 약관) -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true"><div class="m-box"><button type="button" class="ico m-x" data-close aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button><div id="mBody"></div></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="js/data.js?v=1"></script>
+<script src="js/script.js?v=1"></script>
+</body>
+</html>
